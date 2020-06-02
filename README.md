@@ -30,12 +30,13 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|email|string|null: false, unique: true|
+|email|string|null: false|
 |password|string|null: false|
 
 ### Association
 - has_many :posts
 - has_many :groups, through: :users_groups
+- has_many :users_groups
 
 ## groupsテーブル
 |Column|Type|Options|
@@ -45,6 +46,7 @@ Things you may want to cover:
 ### Association
 - has_many :posts
 - has_many :users, through: :users_groups
+- has_many :users_groups
 
 ## postsテーブル
 |Column|Type|Options|
@@ -59,7 +61,6 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :group
-- has_many :users_groups
 
 ## users_groupsテーブル
 |Column|Type|Options|
