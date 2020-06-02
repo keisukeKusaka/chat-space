@@ -51,7 +51,7 @@ Things you may want to cover:
 ## postsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|string|null: false|
+|text|string||
 |image|string||
 |user_id|reference|null: false, foreign_key: true|
 |group_id|reference|null: false, foreign_key: true|
