@@ -45,7 +45,6 @@ Things you may want to cover:
 ### Association
 - has_many :posts
 - has_many :users, through: :users_groups
-- has_many :users_groups
 
 ## postsテーブル
 |Column|Type|Options|
