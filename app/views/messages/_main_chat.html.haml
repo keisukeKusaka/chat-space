@@ -1,26 +1,26 @@
-%div{class: "main-chat"}
-  %div{class: "main-chat__group-info"}
-    %div{class: "group-info"}
-      %div{class: "group-info__title"}
+.main-chat
+  .main-chat__group-info
+    .group-info
+      .group-info__title
         title
-      %div{class: "group-info__member-list"}
+      .group-info__member-list
         Member : test1
-    %button{class: "edit-btn"}
+    .edit-btn
       = link_to "#", class: "edit-group" do
         Edit
 
-  %div{class: "main-chat__message-list"}
-    %div{class: "message-block"}
-      %div{class: "message-block__info"}
-        %div{class: "info-name"}
+  .main-chat__message-list
+    .message-block
+      .message-block__info
+        .info-name
           name
-        %div{class: "info-date"}
+        .info-date
           2020/1/1 12:00:00
-      %div{class: "message-block__message"}
+      .message-block__message
         message
 
-  %div{class: "main-chat__message-form"}
-    %div{class: "bottom-items"}
+  .main-chat__message-form
+    .bottom-items
       %input.bottom-items__message{placeholder: "type a message"}
       %label{class: "bottom-items__image",}        
         = icon('far', 'image', class: "file-btn")
