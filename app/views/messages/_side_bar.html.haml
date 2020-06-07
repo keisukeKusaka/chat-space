@@ -1,0 +1,17 @@
+.side-bar
+  .side-bar__user-name
+    .top-items
+      .top-items__name
+        name
+      .top-items__icons
+        = link_to "#", class: "make-group" do
+          = icon('far', 'edit', class: "make-group__icon")
+        = link_to "#", class: "edit-account" do
+          = icon('fa', 'cog', class: "edit-account__icon")
+        
+  .side-bar__group-list
+    .group-block
+      .group-block__title
+        group-title
+      .group-block__latest-message
+        最新メッセージ
