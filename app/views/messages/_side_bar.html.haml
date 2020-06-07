@@ -1,1 +1,17 @@
-<サイドバー>
+%div{class: "side-bar"}
+  %div{class: "side-bar__user-name"}
+    %div{class: "top-items"}
+      %div{class: "top-items__name"}
+        name
+      %div{class: "top-items__icons"}
+        = link_to "#", class: "make-group" do
+          = icon('far', 'edit', class: "make-group__icon")
+        = link_to "#", class: "edit-account" do
+          = icon('fa', 'cog', class: "edit-account__icon")
+        
+  %div{class: "side-bar__group-list"}
+    %div{class: "group-block"}
+      %div{class: "group-block__title"}
+        group-title
+      %div{class: "group-block__latest-message"}
+        最新メッセージ
