@@ -4,7 +4,7 @@
       .top-items__name
         = current_user.name
       .top-items__icons
-        = link_to "#", class: "make-group" do
+        = link_to new_group_path, class: "make-group" do
           = icon('far', 'edit', class: "make-group__icon")
         = link_to edit_user_path(current_user), class: "edit-account" do
           = icon('fa', 'cog', class: "edit-account__icon")
