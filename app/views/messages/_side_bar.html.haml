@@ -10,8 +10,10 @@
           = icon('fa', 'cog', class: "edit-account__icon")
         
   .side-bar__group-list
-    .group-block
-      .group-block__title
-        group-title
-      .group-block__latest-message
-        最新メッセージ
+    - current_user.groups.each do |group|
+      .group-block
+        = link_to '#' do
+          .group-block__title
+            = group.name
+          .group-block__latest-message
+            最新メッセージ
