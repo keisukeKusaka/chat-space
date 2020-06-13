@@ -1,0 +1,11 @@
+.message-block
+  .message-block__info
+    .info-name
+      = message.user.name
+    .info-date
+      = message.created_at.strftime("%Y年%m月%d日　%H時%M分")
+  .message-block__message
+    - if message.content.present?
+      = message.content
+    -if message.image.present?
+      = image_tag message.image.url
