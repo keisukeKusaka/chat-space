@@ -56,12 +56,17 @@ $color-gray: #999999;
       
       .group-block {
         padding: 20px 20px 40px;
+        text-decoration: none;
         &__title {
           font-size: 15px;
+          text-decoration: none;
+          color: $color-white;
         }
         &__latest-message {
           font-size: 11px;
           margin-top: 5px;
+          text-decoration: none;
+          color: $color-white;
         }
       }
     }
