@@ -2,9 +2,11 @@
   .main-chat__group-info
     .group-info
       .group-info__title
-        title
+        = @group.name
       .group-info__member-list
-        Member : test1
+        Member : 
+        - @group.users.each do |user|
+          = user.name
     .edit-btn
       = link_to "#", class: "edit-group" do
         Edit
