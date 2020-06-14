@@ -12,8 +12,8 @@
   .side-bar__group-list
     - current_user.groups.each do |group|
       .group-block
-        = link_to '#' do
+        = link_to group_messages_path(group) do
           .group-block__title
             = group.name
           .group-block__latest-message
-            最新メッセージ
+            = group.show_last_message
