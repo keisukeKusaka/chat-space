@@ -41,8 +41,7 @@ $(function(){
     var formData = new FormData(this);
     var url = $(this).attr('action');
 
-    console.log(イベント発火);
-    console.log(url);
+    console.log('イベント発火');
 
     $.ajax({
       url: url,
@@ -54,8 +53,10 @@ $(function(){
     })
     .done (function(data){
       var html = buildHTML(data);
+      $('.main-chat__message-list').append(html);
+      $('form')[0].reset();
+
       console.log("done実行");
-      console.log(html);
     })
     .fail(function() {
       console.log("fail実行");
