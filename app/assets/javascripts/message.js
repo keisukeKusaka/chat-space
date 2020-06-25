@@ -1,7 +1,5 @@
 $(function(){
   function buildHTML(message) {
-    console.log("buildHTML実行");
-
     if (message.image) {
       var html = `<div class="message-block">
                     <div class="message-block__info">
@@ -41,8 +39,6 @@ $(function(){
     var formData = new FormData(this);
     var url = $(this).attr('action');
 
-    console.log('イベント発火');
-
     $.ajax({
       url: url,
       type: 'POST',
@@ -57,12 +53,10 @@ $(function(){
       $('form')[0].reset();
       $('.main-chat__message-list').animate({scrollTop: $('.main-chat__message-list')[0].scrollHeight});
       $('.send-btn').prop('disabled', false);
-
-      console.log("done実行");
     })
     .fail(function() {
-      console.log("fail実行");
       alert("メッセージ送信に失敗しました");
+      $('.send-btn').prop('disabled', false);
     });
   });
 });
