@@ -8,8 +8,6 @@ $(function(){
       </div>
     `;
     $("#user-search-result").append(html);
-    console.log("addUser実行");
-    console.log(html);
   };
   function addNoUser() {
     let html = `
@@ -22,8 +20,6 @@ $(function(){
 
   $('#user-search-field').on("keyup", function(){
     var input = $('#user-search-field').val();
-    console.log("keyup発火");
-    console.log(input);
 
     $.ajax({
       type: 'GET',
@@ -32,8 +28,6 @@ $(function(){
       dataType: 'json'
     })
     .done(function(users){
-      console.log("done実行");
-      console.log(users);
       $("#user-search-result").empty();
       if (users.length !== 0) {
         users.forEach(function(user) {
@@ -47,7 +41,6 @@ $(function(){
     })
     .fail(function(){
       alert("通信エラーです。ユーザーが表示できません。");
-      console.log("fail実行");
     });
   });
 });
