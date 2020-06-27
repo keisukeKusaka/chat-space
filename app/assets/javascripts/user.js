@@ -20,17 +20,22 @@ $(function(){
   };
 
   function moveToChatMember(user_name, user_id) {
-    console.log('moveToChatMember実行')
+    console.log('moveToChatMember実行');
     var html = `
-                <div class = 'chat-group-user'>
-                  <input name = 'group[user_ids][]' type = 'hidden' value = '${user_id}'>
+                <div class = 'chat-group-user' id = '${user_id}'>
                   <p class = 'chat-group-user__name'>${user_name}</p>
-                  <div class = 'user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+                  <div class = 'user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id = '${user_id}' data-user-name = '${user_name}'>削除</div>
                 </div>`;
 
-    $('#chat-group-users').append(html);
-    console.log('メンバーに追加したユーザー名→group[user_ids][]');
-  }
+    $('.js-add-user').append(html);
+    console.log('メンバーに追加したユーザー名→',user_name);
+  };
+
+  function addMember(user_id) {
+    console.log('addMember実行');
+    let html = `<input value = '${user_id}' name = 'group[user_ids][]' type = 'hidden' id = 'group_user_ids_${user_id}' />`
+    $(`#${user_id}`).append(html);
+  };
 
   $('#user-search-field').on("keyup", function(){
     var input = $('#user-search-field').val();
@@ -59,13 +64,20 @@ $(function(){
   });
 
   $('#user-search-result').on('click', '.chat-group-user__btn', function(){
-    console.log("clickイベント発火");
-    var data_id = $('.chat-group-user__btn').data('user-id');
-    var data_name = $('.chat-group-user__btn').data('user-name');
+    console.log("メンバーへ追加イベント発火");
+    var data_id = $(this).data('user-id');
+    var data_name = $(this).data('user-name');
     console.log(data_id, data_name);
 
-    $('chat-group-user').remove;
+    $(this).parent().remove();
 
     moveToChatMember(data_name, data_id);
+    addMember(data_id);
   });
+
+  $('#chat-group-users').on('click', '.chat-group-user__btn--remove', function(){
+    console.log("メンバーから削除イベント発火");
+    $(this).parent().remove();
+  });
+
 });
