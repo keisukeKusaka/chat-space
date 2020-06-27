@@ -20,7 +20,6 @@ $(function(){
   };
 
   function moveToChatMember(user_name, user_id) {
-    console.log('moveToChatMember実行');
     var html = `
                 <div class = 'chat-group-user' id = '${user_id}'>
                   <p class = 'chat-group-user__name'>${user_name}</p>
@@ -28,11 +27,9 @@ $(function(){
                 </div>`;
 
     $('.js-add-user').append(html);
-    console.log('メンバーに追加したユーザー名→',user_name);
   };
 
   function addMember(user_id) {
-    console.log('addMember実行');
     let html = `<input value = '${user_id}' name = 'group[user_ids][]' type = 'hidden' id = 'group_user_ids_${user_id}' />`
     $(`#${user_id}`).append(html);
   };
@@ -64,10 +61,8 @@ $(function(){
   });
 
   $('#user-search-result').on('click', '.chat-group-user__btn', function(){
-    console.log("メンバーへ追加イベント発火");
     var data_id = $(this).data('user-id');
     var data_name = $(this).data('user-name');
-    console.log(data_id, data_name);
 
     $(this).parent().remove();
 
@@ -76,7 +71,6 @@ $(function(){
   });
 
   $('#chat-group-users').on('click', '.chat-group-user__btn--remove', function(){
-    console.log("メンバーから削除イベント発火");
     $(this).parent().remove();
   });
 
