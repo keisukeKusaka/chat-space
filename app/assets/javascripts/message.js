@@ -60,4 +60,28 @@ $(function(){
       $('.send-btn').prop('disabled', false);
     });
   });
+
+  var reloadMessages = function() {
+    console.log('reloadMessages実行');
+    var last_message_id = $('.message-block:last').data("message-id");
+    $.ajax({
+      url: 'api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages){
+      console.log('done実行');
+      var insertHTML = '';
+      $.each(messages, function(i, message) {
+        insertHTML += buildHTML(message)
+      });
+      $('.messages').append(insertHTML);
+    })
+    .fail(function(){
+      alert('error');
+    });
+  };
+
+  setInterval(reloadMessages, 7000);
 });
