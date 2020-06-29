@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(message) {
     if (message.image) {
-      var html = `<div class="message-block" data-message-id="${message.id}">
+      var html = `<div class="message-block" data-message-id=${message.id}>
                     <div class="message-block__info">
                       <div class="info-name">
                         ${message.user_name}
@@ -17,7 +17,7 @@ $(function(){
                   </div>`      
       return html;
     } else {
-      var html = `<div class="message-block" data-message-id="${message.id}">
+      var html = `<div class="message-block" data-message-id=${message.id}>
                     <div class="message-block__info">
                       <div class="info-name">
                         ${message.user_name}
@@ -72,16 +72,22 @@ $(function(){
     })
     .done(function(messages){
       console.log('done実行');
-      var insertHTML = '';
-      $.each(messages, function(i, message) {
-        insertHTML += buildHTML(message)
-      });
-      $('.messages').append(insertHTML);
+      if (messages.length !== 0) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.main-chat__message-list').append(insertHTML);
+        $('.main-chat__message-list').animate({ scrollTop: $('.main-chat__message-list')[0].scrollHeight});
+      };
     })
     .fail(function(){
+      console.log('fail実行');
       alert('error');
     });
   };
 
-  setInterval(reloadMessages, 7000);
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });
