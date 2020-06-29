@@ -62,7 +62,6 @@ $(function(){
   });
 
   var reloadMessages = function() {
-    console.log('reloadMessages実行');
     var last_message_id = $('.message-block:last').data("message-id");
     $.ajax({
       url: 'api/messages',
@@ -71,7 +70,6 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages){
-      console.log('done実行');
       if (messages.length !== 0) {
         var insertHTML = '';
         $.each(messages, function(i, message) {
@@ -82,7 +80,6 @@ $(function(){
       };
     })
     .fail(function(){
-      console.log('fail実行');
       alert('error');
     });
   };
