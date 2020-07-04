@@ -63,3 +63,7 @@ gem 'pry-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails-controller-testing'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
