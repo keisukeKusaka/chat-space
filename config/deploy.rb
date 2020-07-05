@@ -2,7 +2,7 @@
 lock "3.14.1"
 
 set :application, "chat-space"
-set :repo_url, "git@example.com:boborabi/chat-space.git"
+set :repo_url, "git@github.com:boborabi/chat-space.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
