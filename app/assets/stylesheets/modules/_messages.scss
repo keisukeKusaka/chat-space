@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 $color-white: #ffffff;
 $color-black: #333333;
 $color-skyblue: #38aef0;
@@ -53,19 +57,16 @@ $color-gray: #999999;
     &__group-list {
       height: calc(100vh - 100px);
       background-color: #2f3e51;
-      
       .group-block {
         padding: 20px 20px 40px;
-        text-decoration: none;
         &__title {
           font-size: 15px;
-          text-decoration: none;
           color: $color-white;
         }
         &__latest-message {
           font-size: 11px;
           margin-top: 5px;
-          text-decoration: none;
+          // text-decoration: none;
           color: $color-white;
         }
       }
@@ -107,7 +108,8 @@ $color-gray: #999999;
         border: $color-skyblue 1px solid;
         background-color: $color-white;
         .edit-group{
-          text-decoration: none;
+          // text-decoration: none;
+          color: $color-skyblue;
         }
       }
     }
